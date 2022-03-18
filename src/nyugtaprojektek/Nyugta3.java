@@ -36,12 +36,20 @@ public class Nyugta3 {
         String rovidVonal = "_______";
         kiirast(rovidVonal);
     }
-
-    
-    public static void main(String[] args) {
+    private static void szagatottVonalKiiras() {
+        String szaggatottVonal = "--------------------";
+        kiirasln(szaggatottVonal);
+    }
+    private static void sortores() {
+        kiirasln("");
+    }
+    private static void fej() {
         csillagKiiras();
         System.out.printf("%14s\n", "Nyugta 3");
         csillagKiiras();
+    }
+
+    private static void kozep() {
         final String HUF = "Ft";
         int tetel1 = 350, tetel2 = 90, tetel3 = 1320;
         kiirasf("%10s: %5d %s\n", "Tétel 1", tetel1, HUF);
@@ -53,8 +61,7 @@ public class Nyugta3 {
         int osszesen = osszeadas(tetel1, tetel2);
         int osszesen2 = osszeadas(osszesen,tetel3);
         kiirasf("%10s: %5d %s\n", "Összesen", osszesen2, HUF);
-        String szaggatottVonal = "--------------------";
-        kiirasln(szaggatottVonal);
+        szagatottVonalKiiras();
         
         int szervizDijMertek = 10;
         int szervizDij = osztas(osszesen2, szervizDijMertek);
@@ -68,15 +75,17 @@ public class Nyugta3 {
         double euro = fizetendo / 373.0;
         final String eur = "\u20ac";
         System.out.printf("%10s%7.2f %s\n","", euro, eur);//
+    }
+
+    private static void vege() {
+        szagatottVonalKiiras();
         
-        kiirasln(szaggatottVonal);
-        
-        kiirasln("");
+        sortores();
         rovidVonalKiiras();
         String rovidVonalValaszto = "      ";
         kiirast(rovidVonalValaszto);
         rovidVonalKiiras();
-        kiirasln("");
+        sortores();
         kiirast(" Dátum");
         kiirast(rovidVonalValaszto);
         kiirasln("   Név");
@@ -85,6 +94,17 @@ public class Nyugta3 {
         kiirasln("        CÉG");
         csillagKiiras();
     }
+    private static void szamla() {
+        fej();
+        kozep();
+        vege();
+    }
+    public static void main(String[] args) {
+        szamla();  
+        
+    }
+
+    
 
     
 }
