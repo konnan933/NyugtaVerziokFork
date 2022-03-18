@@ -43,43 +43,62 @@ public class Nyugta3 {
     private static void sortores() {
         kiirasln("");
     }
-    private static void fej() {
+    private static void nyugtaFej() {
         csillagKiiras();
         System.out.printf("%14s\n", "Nyugta 3");
         csillagKiiras();
     }
-
-    private static void kozep() {
+    private static String huf() {
         final String HUF = "Ft";
+        return HUF;
+    }
+    private static int tetel1() {
+        int tetel1 = 350;
+        return tetel1;
+    }
+    private static int tetel2() {
+        int tetel2 = 90;
+        return tetel2;
+    }
+    private static int tetel3() {
+        int tetel3 = 1320;
+        return tetel3;
+    }
+    private static void tetelek() {
         int tetel1 = 350, tetel2 = 90, tetel3 = 1320;
-        kiirasf("%10s: %5d %s\n", "Tétel 1", tetel1, HUF);
-        kiirasf("%10s: %5d %s\n", "Tétel 2", tetel2, HUF);
-        kiirasf("%10s: %5d %s\n", "Tétel 3", tetel3, HUF);
+        kiirasf("%10s: %5d %s\n", "Tétel 1", tetel1(), huf());
+        kiirasf("%10s: %5d %s\n", "Tétel 2", tetel2(), huf());
+        kiirasf("%10s: %5d %s\n", "Tétel 3", tetel3(), huf());  
+    }
+    
+
+    private static void adatok() {
+        tetelek();
 
         duplaKiiras();
         
-        int osszesen = osszeadas(tetel1, tetel2);
-        int osszesen2 = osszeadas(osszesen,tetel3);
-        kiirasf("%10s: %5d %s\n", "Összesen", osszesen2, HUF);
+        int osszesen = osszeadas(tetel1(), tetel2());
+        int osszesen2 = osszeadas(osszesen,tetel3());
+        
+        kiirasf("%10s: %5d %s\n", "Összesen", osszesen2, huf());
         szagatottVonalKiiras();
         
         int szervizDijMertek = 10;
         int szervizDij = osztas(osszesen2, szervizDijMertek);
       
-        kiirasf("%10s: %5d %s\n", "Szervízdíj", szervizDij, HUF);
+        kiirasf("%10s: %5d %s\n", "Szervízdíj", szervizDij, huf());
         System.out.printf("(%d%%)\n", szervizDijMertek);
         
         duplaKiiras();
         int fizetendo = osszeadas(osszesen2, szervizDij);
-        kiirasf("%10s:  %d %s\n", "Fizetendő", fizetendo, HUF);
+        kiirasf("%10s:  %d %s\n", "Fizetendő", fizetendo, huf());
         double euro = fizetendo / 373.0;
         final String eur = "\u20ac";
         System.out.printf("%10s%7.2f %s\n","", euro, eur);//
     }
 
-    private static void vege() {
+    private static void nyugtaVege() {
         szagatottVonalKiiras();
-        
         sortores();
         rovidVonalKiiras();
         String rovidVonalValaszto = "      ";
@@ -95,9 +114,9 @@ public class Nyugta3 {
         csillagKiiras();
     }
     private static void szamla() {
-        fej();
-        kozep();
-        vege();
+        nyugtaFej();
+        adatok();
+        nyugtaVege();
     }
     public static void main(String[] args) {
         szamla();  
