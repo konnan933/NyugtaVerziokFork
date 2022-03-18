@@ -43,11 +43,7 @@ public class Nyugta3 {
     private static void sortores() {
         kiirasln("");
     }
-    private static void nyugtaFej() {
-        csillagKiiras();
-        System.out.printf("%14s\n", "Nyugta 3");
-        csillagKiiras();
-    }
+    
     private static String huf() {
         final String HUF = "Ft";
         return HUF;
@@ -75,7 +71,11 @@ public class Nyugta3 {
         int osszesen2 = osszeadas(osszesen,tetel3());
         return osszesen2;
     }
-    
+    private static void nyugtaFej() {
+        csillagKiiras();
+        System.out.printf("%14s\n", "Nyugta 3");
+        csillagKiiras();
+    }
 
     private static void adatok() {
         tetelek();
