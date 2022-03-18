@@ -1,12 +1,6 @@
 package nyugtaprojektek;
-/* Probléma:
-tüntessük el a kézzel beírt szóközöket,
-a huf ne tartalmazzon eurót
-a kedvezmény helyett legyen szervízdíj, amit hozzá kell adni a végössdzeghez
-*/
-public class Nyugta3 {
 
-    
+public class Nyugta3 {
     private static void kiirasln(String szoveg) {
         System.out.println(szoveg);
     }
@@ -43,7 +37,6 @@ public class Nyugta3 {
     private static void sortores() {
         kiirasln("");
     }
-    
     private static String huf() {
         final String HUF = "Ft";
         return HUF;
@@ -74,12 +67,18 @@ public class Nyugta3 {
     private static int szervizDijMertek() {
         int szervizDijMertek = 10;
         return szervizDijMertek;
-        
     }
-    private static int szervizDij() {
-        
+    private static int szervizDij() {   
         int szervizDij = osztas(osszesen(), szervizDijMertek());
         return szervizDij;
+    }
+    private static int fizetendo() {   
+        int fizetendo = osszeadas(osszesen(), szervizDij());
+        return fizetendo;
+    }
+    private static double euro() {
+        double euro = fizetendo() / 373.0;
+        return euro; 
     }
     
     private static void nyugtaFej() {
@@ -90,21 +89,15 @@ public class Nyugta3 {
 
     private static void adatok() {
         tetelek();
-
         duplaKiiras();
-        
         kiirasf("%10s: %5d %s\n", "Összesen", osszesen(), huf());
         szagatottVonalKiiras();
-      
         kiirasf("%10s: %5d %s\n", "Szervízdíj", szervizDij(), huf());
         System.out.printf("(%d%%)\n", szervizDijMertek());
-        
         duplaKiiras();
-        int fizetendo = osszeadas(osszesen(), szervizDij());
-        kiirasf("%10s:  %d %s\n", "Fizetendő", fizetendo, huf());
-        double euro = fizetendo / 373.0;
+        kiirasf("%10s:  %d %s\n", "Fizetendő", fizetendo(), huf());
         final String eur = "\u20ac";
-        System.out.printf("%10s%7.2f %s\n","", euro, eur);//
+        System.out.printf("%10s%7.2f %s\n","", euro(), eur);//
     }
 
     private static void nyugtaVege() {
@@ -128,11 +121,6 @@ public class Nyugta3 {
         nyugtaVege();
     }
     public static void main(String[] args) {
-        szamla();  
-        
-    }
-
-    
-
-    
+        szamla();   
+    }  
 }
