@@ -76,6 +76,7 @@ public class Nyugta3 {
         String rovidVonalValaszto = "      ";
         kiirast(rovidVonalValaszto);
         rovidVonalKiiras();
+        kiirasln("");
         kiirast(" Dátum");
         kiirast(rovidVonalValaszto);
         kiirasln("   Név");
