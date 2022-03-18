@@ -68,9 +68,20 @@ public class Nyugta3 {
     }
     private static int osszesen() {
         int osszesen = osszeadas(tetel1(), tetel2());
-        int osszesen2 = osszeadas(osszesen,tetel3());
-        return osszesen2;
+        osszesen = osszeadas(osszesen,tetel3());
+        return osszesen;
     }
+    private static int szervizDijMertek() {
+        int szervizDijMertek = 10;
+        return szervizDijMertek;
+        
+    }
+    private static int szervizDij() {
+        
+        int szervizDij = osztas(osszesen(), szervizDijMertek());
+        return szervizDij;
+    }
+    
     private static void nyugtaFej() {
         csillagKiiras();
         System.out.printf("%14s\n", "Nyugta 3");
@@ -84,15 +95,12 @@ public class Nyugta3 {
         
         kiirasf("%10s: %5d %s\n", "Összesen", osszesen(), huf());
         szagatottVonalKiiras();
-        
-        int szervizDijMertek = 10;
-        int szervizDij = osztas(osszesen(), szervizDijMertek);
       
-        kiirasf("%10s: %5d %s\n", "Szervízdíj", szervizDij, huf());
-        System.out.printf("(%d%%)\n", szervizDijMertek);
+        kiirasf("%10s: %5d %s\n", "Szervízdíj", szervizDij(), huf());
+        System.out.printf("(%d%%)\n", szervizDijMertek());
         
         duplaKiiras();
-        int fizetendo = osszeadas(osszesen(), szervizDij);
+        int fizetendo = osszeadas(osszesen(), szervizDij());
         kiirasf("%10s:  %d %s\n", "Fizetendő", fizetendo, huf());
         double euro = fizetendo / 373.0;
         final String eur = "\u20ac";
